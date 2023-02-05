@@ -14,9 +14,11 @@ use App\Http\Controllers\PengirimanController;
 use App\Http\Controllers\KonfirmasibayarController;
 use App\Http\Controllers\KonfirmasidanaController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\PayconfirmController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Keranjang;
+use App\Models\Payconfirm;
 use App\Models\Pembelian;
 use App\Models\Penilaian;
 use App\Models\User;
@@ -142,12 +144,16 @@ Route::get('/payment',function(Request $request)
         'paym' => Pembelian::where('invoice', $wadah)->first(),
         
     ]);
+
+
 })->middleware('auth');
 
 
 
 
+// Konfirmasi Pembayaran
 
+Route::resource('/payment-confirm', PayconfirmController::class);
 
 
 

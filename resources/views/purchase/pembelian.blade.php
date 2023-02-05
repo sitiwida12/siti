@@ -58,10 +58,15 @@
                 <div class="d-flex justify-content-between p-2">
                     <div class="waktu-bayar">
                         {{-- Bayar sebelum {{ $bb->waktu_pembayaran }} dengan Indomaret / i.Saku --}}
-                        Bayar sebelum {{ $bb->waktu_pembayaran }} dengan Gopay
+                        Bayar sebelum {{ $bb->waktu_pembayaran }} dengan {{ $bb->mbayar->jenis_bayar }}
                     </div>
                     <div class="pilihan-aksi">
+
+                        
                         <a class="btn btn-primary btn-sm {{ $display }}" href="#" role="button">Bayar Sekarang</a>
+                        
+                        
+                        
                         <form action="/user/purchase/{{ $bb->id }}" method="post">
                             @method('put')
                             @csrf
