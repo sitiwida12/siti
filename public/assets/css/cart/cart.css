@@ -1,0 +1,28 @@
+.cobtn{
+    position: absolute;
+    border: none;
+    background: hsla(196, 100%, 51%, 1);
+    background: linear-gradient(0deg, hsla(196, 100%, 51%, 1) 0%, hsla(245, 83%, 32%, 1) 100%);
+    background: -moz-linear-gradient(0deg, hsla(196, 100%, 51%, 1) 0%, hsla(245, 83%, 32%, 1) 100%);
+    background: -webkit-linear-gradient(0deg, hsla(196, 100%, 51%, 1) 0%, hsla(245, 83%, 32%, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#05BCFF", endColorstr="#190E96", GradientType=1 );
+    color: white;
+    font-weight: bold;
+    /* float: right; */
+    width: 20%;
+    height: 80%;
+    bottom: 40%;
+    right: 5%;
+    z-index: 100;
+    /* border-radius: 10%; */
+}
+
+a
+{
+    text-decoration: none;
+}
+
+.table thead tr th{
+    /* border-bottom: none; */
+    font-weight: lighter;
+}

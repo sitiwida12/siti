@@ -1,0 +1,27 @@
+.box-alamat-user{
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-top:  5px solid rgb(255, 30, 0);
+}
+
+.table{
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-top:  5px solid rgb(255, 118, 38);
+}
+
+
+.totalan{
+    /* float: right; */
+    margin-right: 0px;
+    margin-left: auto;
+}
+
+.totalan .jml{
+   text-align-last: right;
+}
+
+
+.payment-method{
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    border-top:  5px solid rgb(91, 219, 5);
+}
+
