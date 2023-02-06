@@ -38,7 +38,28 @@ class PayconfirmController extends Controller
      */
     public function store(Request $request)
     {
-        $validateData = $request->validate();
+        // dd($request->file('pconfirm_pic')->move(public_path('payment_confirmation')));
+        dd($request->file('pconfirm_pic'));
+
+
+        $validateData = $request->validate([
+            'pembelian_id' => '',
+            'pconfirm_pic' => 'image|file|max:5087'
+        ]);
+
+        // $validatedData['pconfirm_pic'] = $request->file('pconfirm_pic')->store('payment_confirmation','public');
+        
+        
+        // $validateData['pconfirm_pic'] = $request->move('pconfirm_pic');
+
+        // $validateData['pconfirm_pic'] = $request->move('pconfirm_pic');
+        
+        $validateData['pconfirm_pic'] = $request->file('image')->move(public_path('img/products/'), $request->file('image')->getClientOriginalName());
+        
+        
+        
+        Payconfirm::create($validateData);
+        return redirect('/user/purchase/?status_pembayaran=1');
     }
 
     /**

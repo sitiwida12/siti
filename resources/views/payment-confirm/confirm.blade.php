@@ -17,7 +17,7 @@
 	<!-- end breadcrumb section -->
 
     <div class="container mt-5 mb-150">
-      <form action="" method="post">
+      <form action="" method="post" enctype="multipart/form-data">
         @csrf
         <input type="text" name="pembelian_id" hidden><br>
         <label for="pconfirm_pic">Upload Bukti Pembayaran</label><br>
