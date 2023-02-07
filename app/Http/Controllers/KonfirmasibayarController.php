@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Konfirmasibayar;
 use App\Http\Requests\StoreKonfirmasibayarRequest;
 use App\Http\Requests\UpdateKonfirmasibayarRequest;
+use App\Models\Paymentc;
 use App\Models\Pembelian;
 use App\Models\Pengiriman;
 use Illuminate\Http\Request;
@@ -84,11 +85,14 @@ class KonfirmasibayarController extends Controller
      */
     public function edit($id)
     {
-        // dd( $id);
+        // dd($id);
         // dd(Pembelian::where('id',$id)->get());
+
+        // dd(Paymentc::where('id',$id)->first());
         return view('/dashboard/admin/konfirmasi_pembayaran/edit',[
             'spem' => Pembelian::where('id',$id)->first(),
-            'id' =>  $id
+            'id' =>  $id,
+            'img' => Paymentc::where('id',$id)->first()
        ]);
     }
 

@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('payconfirms', function (Blueprint $table) {
+        Schema::create('paymentcs', function (Blueprint $table) {
             $table->id();
             $table->foreignId('pembelian_id');
             $table->longText('pconfirm_pic');
@@ -28,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payconfirms');
+        Schema::dropIfExists('paymentcs');
     }
 };

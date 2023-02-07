@@ -15,6 +15,8 @@ use App\Http\Controllers\KonfirmasibayarController;
 use App\Http\Controllers\KonfirmasidanaController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\PayconfirmController;
+use App\Http\Controllers\PaymentcController;
+use App\Http\Controllers\PaymentconfirmController;
 use App\Http\Controllers\PembelianController;
 use App\Http\Controllers\RegisterController;
 use App\Models\Keranjang;
@@ -153,7 +155,10 @@ Route::get('/payment',function(Request $request)
 
 // Konfirmasi Pembayaran
 
-Route::resource('/payment-confirm', PayconfirmController::class);
+Route::get('/payment-confirm/{id}',[PaymentcController::class, 'index'])->middleware('auth');
+Route::post('/payment-confirm',[PaymentcController::class, 'store'])->middleware('auth');
+
+// Route::resource('/payment-confirm', PaymentcController::class)->middleware('auth');
 
 
 

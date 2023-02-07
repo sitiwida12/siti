@@ -6,6 +6,8 @@
     <h4>Check Status konfirmasi Pembayaran</h4>
     <div class="row">
         <div class="col-5">
+            <img src="{{ asset('storage/'.Str::remove('public/', $img->images)) }}" alt="" srcset="" width="100%">
+            
             <form action="/dashboard/konfirmasi-pembayaran/{{ $id }}" method="post">
                 @method('put')
                 @csrf

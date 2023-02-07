@@ -17,11 +17,11 @@
 	<!-- end breadcrumb section -->
 
     <div class="container mt-5 mb-150">
-      <form action="" method="post" enctype="multipart/form-data">
+      <form action="/payment-confirm" method="post" enctype="multipart/form-data">
         @csrf
-        <input type="text" name="pembelian_id" hidden><br>
+        <input type="text" name="pembelian_id" value="{{ $myid }}" hidden><br>
         <label for="pconfirm_pic">Upload Bukti Pembayaran</label><br>
-        <input type="file" name="pconfirm_pic"><br>
+        <input type="file" name="images"><br>
         <button type="submit" class="my-3">Kirim</button>
 
       </form>
