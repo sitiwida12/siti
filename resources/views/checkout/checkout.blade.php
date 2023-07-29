@@ -209,16 +209,16 @@
             // console.log(total);
 
 
-            $('#subtotal').text(total);
+            $('#subtotal').text(toRupiah(total));
             // console.log(subtotal);
 
             $('#ttl').text($('#subtotal').text());
             // console.log( $('#ttl').text());
 
-            $('#tk').text(toRupiah($('#subtotal').text()));
+            $('#tk').text($('#subtotal').text());
 
-            let tk = toRupiah($('#tk').text());
-            console.log(tk);
+            let tk = $('#tk').text();
+            // console.log(tk);
             // console.log($('#subtotal').text((total)));
 
             // $('#tp').text($('#tk').text());
@@ -241,7 +241,7 @@
             // subtotal + ongkir
             // tk + ongkir
 
-            jumlah = ~~tk + ~~ongkir;
+            jumlah = ~~tk.slice(2).replace(',00', '').replaceAll('.', '') + ~~ongkir;
             // console.log(jumlah);
             // console.log(ongkir);
 
@@ -288,16 +288,18 @@
             let hia = $('#subtotal').text();
             $('#ttl').text(hia);
             $('#tk').text($('#subtotal').text());
-            $('#tp').text($('#tk').text());
+            // $('#tp').text($('#tk').text());
 
            
-            let tk = $('#tk').text()
-            console.log(tk);
-            let ongkir = $('#ongkir').text();
+            let tk = $('#tk').text().slice(2).replace(',00', '').replaceAll('.', '');
+            // console.log(tk);
+
+            let ongkir = $('#ongkir').text().slice(2).replace(',00', '').replaceAll('.', '');
 
             jumlah = ~~tk + ~~ongkir;
 
-            let tp = $('#tp').text();
+
+            let tp = $('#tp').text(toRupiah(jumlah));
 
             // let ongkir = $('#ongkir').text();
             // let tp = $('#tp').text(tk+ongkir);
@@ -328,8 +330,8 @@
             let tk = $('#tk').text().slice(2).replace(',00', '').replaceAll('.', '');
             // console.log(tk);
 
-            let ongkir = $('#ongkir').text();
-
+            let ongkir = $('#ongkir').text().slice(2).replace(',00', '').replaceAll('.', '');
+            console.log(ongkir);
 
             if (ongkir === '') {
                 ongkir = 0;
@@ -341,7 +343,7 @@
             jumlah = ~~tk + ~~ongkir;
             // console.log(jumlah);
 
-            let tp = $('#tp').text(jumlah);
+            let tp = $('#tp').text(toRupiah(jumlah));
 
             // let ongkir = $('#ongkir').text();
             // let tp = $('#tp').text(tk+ongkir);
@@ -358,11 +360,12 @@
                 url: '/checkongkir?kurir=' + value,
                 method: 'GET',
                 success: function(result) {
-                    $('#ongkir').text(result);
+                    $('#ongkir').text(toRupiah(result));
                     let tk = $('#tk').text().slice(2).replace(',00', '').replaceAll('.', '');
-                    console.log(tk);
+                    // console.log(tk);
 
-                    let ongkir = $('#ongkir').text();
+                    let ongkir = $('#ongkir').text().slice(2).replace(',00', '').replaceAll('.', '');
+                  ;
 
                     jumlah = ~~tk + ~~ongkir;
                     // console.log(jumlah);
@@ -391,11 +394,11 @@
                 url: '/checkongkir?kurir=' + value,
                 method: 'GET',
                 success: function(result) {
-                    $('#ongkir').text(result);
+                    $('#ongkir').text(toRupiah(result));
                     let tk = $('#tk').text().slice(2).replace(',00', '').replaceAll('.', '');
                     console.log(tk);
 
-                    let ongkir = $('#ongkir').text();
+                    let ongkir = $('#ongkir').text().slice(2).replace(',00', '').replaceAll('.', '');
 
                     jumlah = ~~tk + ~~ongkir;
                    
