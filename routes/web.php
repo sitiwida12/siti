@@ -14,6 +14,7 @@ use App\Http\Controllers\PengirimanController;
 use App\Http\Controllers\KonfirmasibayarController;
 use App\Http\Controllers\KonfirmasidanaController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\ongkir;
 use App\Http\Controllers\PayconfirmController;
 use App\Http\Controllers\PaymentcController;
 use App\Http\Controllers\PaymentconfirmController;
@@ -25,8 +26,12 @@ use App\Models\Pembelian;
 use App\Models\Penilaian;
 use App\Models\User;
 use Illuminate\Http\Request;
+
+
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -135,6 +140,7 @@ Route::get('/cart',function(){
 // });
 
 Route::resource('/checkout',PembelianController::class)->middleware('auth');
+Route::get('/checkongkir',[PembelianController::class,'ongkir']);
 
 
 Route::get('/payment',function(Request $request)
@@ -213,6 +219,9 @@ Route::get('/user/purchase',function(Request $request)
         'active' => 'shop'
     ]);
 })->middleware('auth');
+
+
+
 
 Route::put('/user/purchase/{id}',function($id)
 {
