@@ -78,7 +78,7 @@
 
                 <input name="deskripsi_produk" type="text" class="j" name="deskripsi_produk" placeholder="Deskripsi Produk" value="{{ $produk->deskripsi_produk }}">
 
-                <button type="submit" class="btn btn-primary w-100 my-2">Primary</button>
+                <button type="submit" class="btn btn-primary w-100 my-2">Ubah</button>
 
             </form>
         </div>

@@ -41,9 +41,13 @@ class PembelianController extends Controller
 
 
             $api_key = 'c94dcd12b8b3fd72d036803317f4e88b';
-            // $destination = User::select('kota_id')->where('id',auth()->user()->id)->first();
-            // dd($destination);
-            // $origin = dd(Produk::join('users','users.id', '=','produks.user_id')->whereIn('produks.id', $after)->select('users.kota_id')->first());
+            $destination = User::select('kota_id')->where('id',auth()->user()->id)->first();
+            // dd(is_string($destination));
+            // dd($destination['kota_id']);
+
+
+            $origin = Produk::join('users','users.id', '=','produks.user_id')->whereIn('produks.id', $after)->select('users.kota_id')->first();
+            // dd(is_string($origin));
             // dd($origin);
             // $weight = Produk::select('weight')->whereIn('produks.id', $after)->first();
             // dd($weight);
@@ -195,7 +199,10 @@ class PembelianController extends Controller
 
 
     public function ongkir(Request $request){
-        $wadah = $request->query('state');
+
+
+        //kurang nambah value pada state
+        $wadah = $request->state;
         $after = explode(',',$wadah);
 
 
@@ -207,12 +214,23 @@ class PembelianController extends Controller
         // $weight = Produk::select('weight')->whereIn('produks.id', $after)->first();
         // $courier = 'jne';
         
+
+        $destination = User::select('kota_id')->where('id',auth()->user()->id)->first();
+        // $origin = Produk::join('users','users.id', '=','produks.user_id')->whereIn('produks.id', $after)->select('users.kota_id')->first();
+        $origin = Produk::leftjoin('users','users.id', '=','produks.user_id')->whereIn('produks.id', $after)->select('users.kota_id')->first();
         $kurir = $request->kurir;
+
+        // dd($origin);
+
+        // dd( (String) $origin->kota_id);
+        $d = (String) $destination->kota_id;
+        $o = (String) $origin->kota_id;
+        // dd($d);
        
 
         $response = Http::withHeaders(['key'=> $api_key])->post('https://api.rajaongkir.com/starter/cost',[
-            'origin' => '344',
-            'destination' => '115',
+            'origin' => $o, //344
+            'destination' => $d, //115
             'weight' => 1000,
             'courier' => $kurir
         ]);

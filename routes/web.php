@@ -355,4 +355,5 @@ Route::post('/logout', [LoginController::class, 'logout']);
 // register
 Route::get('/register', [RegisterController::class, 'index'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/rajaongkircity', [RegisterController::class, 'rajaOngkirCity']);
 

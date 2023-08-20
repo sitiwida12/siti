@@ -188,11 +188,14 @@
 @section('myscript')
     <script>
         $(document).ready(function() {
+            // $.urlParam('param1');
+
+            // console.log($.urlParam('state'));
             // const urlParams = new URLSearchParams(window.location.search);
 
             // const param_x = urlParams.get('state');
-            // const url= '/checkongkir?kurir=' + value + '&state=' + $.urlParam('state'),
-            // console.log(url);
+            // let url= '/checkongkir?kurir=' + value + '&state=' + $.urlParam('state');
+            // console.log(param_x);
 
             let kuantitas = $('#kuantitas').val();
             let hargasatuan = $('#hargasatuan').text();
@@ -230,7 +233,7 @@
 
             let ongkir = $('#ongkir').text();
             // console.log(ongkir);
-           
+
 
             if (ongkir === '') {
                 ongkir = 0;
@@ -290,7 +293,7 @@
             $('#tk').text($('#subtotal').text());
             // $('#tp').text($('#tk').text());
 
-           
+
             let tk = $('#tk').text().slice(2).replace(',00', '').replaceAll('.', '');
             // console.log(tk);
 
@@ -326,7 +329,7 @@
 
             // $('#tp').text($('#tk').text());
             $('#tk').text($('#subtotal').text());
-            
+
             let tk = $('#tk').text().slice(2).replace(',00', '').replaceAll('.', '');
             // console.log(tk);
 
@@ -354,18 +357,24 @@
 
 
         $('#jne').change(function() {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const state = urlParams.get('state');
+           
+            // console.log(param_x);
+
+
             let value = $(this).val();
 
             $.ajax({
-                url: '/checkongkir?kurir=' + value,
+                url: '/checkongkir?kurir=' + value + '&state=' + state,
                 method: 'GET',
                 success: function(result) {
                     $('#ongkir').text(toRupiah(result));
                     let tk = $('#tk').text().slice(2).replace(',00', '').replaceAll('.', '');
                     // console.log(tk);
 
-                    let ongkir = $('#ongkir').text().slice(2).replace(',00', '').replaceAll('.', '');
-                  ;
+                    let ongkir = $('#ongkir').text().slice(2).replace(',00', '').replaceAll('.', '');;
 
                     jumlah = ~~tk + ~~ongkir;
                     // console.log(jumlah);
@@ -388,10 +397,15 @@
 
 
         $('#pos').change(function() {
+
+            const urlParams = new URLSearchParams(window.location.search);
+
+            const state = urlParams.get('state');
+
             let value = $(this).val();
 
             $.ajax({
-                url: '/checkongkir?kurir=' + value,
+                url: '/checkongkir?kurir=' + value + '&state=' + state,
                 method: 'GET',
                 success: function(result) {
                     $('#ongkir').text(toRupiah(result));
@@ -401,9 +415,9 @@
                     let ongkir = $('#ongkir').text().slice(2).replace(',00', '').replaceAll('.', '');
 
                     jumlah = ~~tk + ~~ongkir;
-                   
+
                     let tp = $('#tp').text(toRupiah(jumlah));
-                   
+
 
 
                     $('#total_harga').val(tp.text().slice(2).replace(',00', '').replaceAll('.', ''));

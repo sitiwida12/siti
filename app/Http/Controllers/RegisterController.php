@@ -2,19 +2,39 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
-// use Illuminate\Foundation\Auth\User;
 use App\Models\User;
+use Illuminate\Http\Request;
+
+// use Illuminate\Foundation\Auth\User;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Http;
 
 class RegisterController extends Controller
 {
     
     public function index(){
+
+    
+        function rocity(){
+
+            $api_key = 'c94dcd12b8b3fd72d036803317f4e88b';
+
+            $response = Http::withHeaders(['key'=> $api_key])->get('https://api.rajaongkir.com/starter/city');
+    
+            $result = collect($response->json())['rajaongkir']['results'];
+            return $result;
+        }
+    
+
+
+       
+
+
         return view('register.register', [
             'title' => 'Register',
-            'active' => 'register'
+            'active' => 'register',
+            'kota' => rocity()
         ]);
     }
 
@@ -31,7 +51,8 @@ class RegisterController extends Controller
             'alamat' => '',
             'kecamatan' => '',
             'kota' =>'',
-            'kode_pos'=>''
+            'kode_pos'=>'',
+            'kota_id' => ''
         ]);
 
         // $validatedData['password'] = bcrypt($validatedData['password']);
@@ -42,5 +63,23 @@ class RegisterController extends Controller
         // $request->session()->flash('success', 'Registration successfull! Please login');
 
         return redirect('/login')->with('success', 'Registration successfull! Please login');
+    }
+
+
+    public function rajaOngkirCity() {
+
+        $api_key = 'c94dcd12b8b3fd72d036803317f4e88b';
+
+        $response = Http::withHeaders(['key'=> $api_key])->get('https://api.rajaongkir.com/starter/province');
+
+        $result = collect($response->json())['rajaongkir']['results'];
+
+        dd($result);
+
+        return $result;
+
+
+
+        
     }
 }

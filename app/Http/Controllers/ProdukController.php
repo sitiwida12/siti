@@ -123,7 +123,8 @@ class ProdukController extends Controller
                 $validatedData['images'.$i] = $request->file('images'.$i)->store('produk-image','public');
             }
         }
-        $validatedData['user_id'] = 1;
+
+        $validatedData['user_id'] = auth()->user()->id;
         // $validatedData['user_id'] = auth()->user()->id;
         // $validatedData['excerpt'] = Str::limit(strip_tags($request->body), 200);
 
