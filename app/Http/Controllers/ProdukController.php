@@ -52,7 +52,8 @@ class ProdukController extends Controller
             'images2' => 'image|file|max:5087',
             'images3' => 'image|file|max:5087',
             'stock' => '',
-            'deskripsi_produk' => ''
+            'deskripsi_produk' => '',
+            'weight' => ''
         ]);
 
         for ($i=1; $i <= 3; $i++) { 
@@ -111,7 +112,8 @@ class ProdukController extends Controller
             'images2' => 'image|file|max:1024',
             'images3' => 'image|file|max:1024',
             'stock' => '',
-            'deskripsi_produk' => ''
+            'deskripsi_produk' => '',
+            'weight' => ''
         ]);
 
         for ($i=1; $i <= 3; $i++) { 

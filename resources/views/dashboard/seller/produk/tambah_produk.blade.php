@@ -65,6 +65,11 @@
                         <label for="">Stok Barang</label>
                         <input type="number" name="stock" id="" class="form-control w-100">
                     </div>
+                    <div class="col">
+                        <label for="">Berat barang (gram)</label>
+                        <input type="number" name="weight" id="" class="form-control w-100">
+                    </div>
+
                 </div>
 
                 <input name="deskripsi_produk" type="text" class="j" name="deskripsi_produk" placeholder="Deskripsi Produk">
