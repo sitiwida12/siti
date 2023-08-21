@@ -40,16 +40,16 @@
                   
                     <div style="width: 200px" class="my-3 mx-3">
                         <input type="file" name="images1" id="input-file-french-2" class="dropify-fr " data-height="150" data-default-file="{{asset('storage/'.$produk->images1)}}" />
-                        <input type="text" name="oldimages1" value="{{ $produk->images1 }}">
+                        <input type="hidden" name="oldimages1" value="{{ $produk->images1 }}">
                     </div>
                     
                     <div style="width: 200px" class="my-3 me-3">
                         <input type="file" name="images2" id="input-file-french-2" class="dropify-fr " data-height="150" />
-                        <input type="text" name="oldimages2" value="{{ $produk->images2 }}">
+                        <input type="hidden" name="oldimages2" value="{{ $produk->images2 }}">
                     </div>
                     <div style="width: 200px" class="my-3 mx-3">
                         <input type="file" name="images3" id="input-file-french-2" class="dropify-fr " data-height="150" />
-                        <input type="text" name="oldimages2" value="{{ $produk->images2 }}">
+                        <input type="hidden" name="oldimages2" value="{{ $produk->images2 }}">
                     </div>
                 </div>
                 {{-- foto --}}
