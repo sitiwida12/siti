@@ -20,7 +20,7 @@
       <form action="/payment-confirm" method="post" enctype="multipart/form-data">
         @csrf
         <input type="text" name="pembelian_id" value="{{ $myid }}" hidden><br>
-        <label for="pconfirm_pic">Upload Bukti Pembayaran</label><br>
+        <label for="images">Upload Bukti Pembayaran</label><br>
         <input type="file" name="images"><br>
         <button type="submit" class="my-3">Kirim</button>
 

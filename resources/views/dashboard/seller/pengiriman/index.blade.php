@@ -32,6 +32,7 @@
                              <th>Alamat</th>
                              <th>Status Pembayaran</th>
                              <th>Status Pengiriman</th>
+                             <th>Selesai</th>
                              <th>Aksi</th>
                          </tr>
                      </thead>
@@ -57,6 +58,13 @@
                             @else
                                 <span class="badge badge-pill badge-success">Sudaah Dikirim</span>
                             @endif
+                          </td>
+                          <td>
+                            @if ($kirim->selesai==null)
+                            <span class="badge badge-pill badge-danger">Belum Selesai</span>
+                        @else
+                            <span class="badge badge-pill badge-success">Selesai</span>
+                        @endif
                           </td>
                           <td><a href="/dashboard/pengiriman/{{ $kirim->id }}/edit" class="badge badge-warning">UBAH</a><span class="mx-2">|</span>
                             <form action="/dashboard/pengiriman/" method="post" class="d-inline">

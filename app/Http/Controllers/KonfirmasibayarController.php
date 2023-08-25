@@ -89,10 +89,10 @@ class KonfirmasibayarController extends Controller
         // dd(Pembelian::where('id',$id)->get());
 
         // dd(Paymentc::where('id',$id)->first());
-        return view('/dashboard/admin/konfirmasi_pembayaran/edit',[
+        return view('dashboard.admin.konfirmasi_pembayaran.edit',[
             'spem' => Pembelian::where('id',$id)->first(),
             'id' =>  $id,
-            'img' => Paymentc::where('id',$id)->first()
+            'img' => Paymentc::where('pembelian_id',$id)->first()
        ]);
     }
 

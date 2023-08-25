@@ -61,7 +61,7 @@
             <input type="hidden" name="seller_id" value="{{ $penjual->user_id }}">
             <input type="hidden" name="invoice"
                 value="INV{{ sprintf('%07d', $prdid) }}{{ $jmlpesan + 1 }}{{ auth()->user()->id }}">
-            <input type="hidden" name="total_harga" id="total_harga">
+            <input type="text" name="total_harga" id="total_harga">
             <input type="hidden" name="tujuan_kota" id="tujuan_kota">
             <input type="hidden" name="waktu_pembayaran" id="waktu_pembayaran" value="">
             <input type="hidden" name="harga_satuan" value="{{ $pesanan[0]['harga'] }}">

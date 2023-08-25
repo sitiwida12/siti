@@ -67,7 +67,7 @@
                         <a class="btn btn-warning btn-sm {{ $display }}" href="/payment-confirm/{{$bb->id}}" role="button">Uploaad Bukti Pembayaran</a>
                         
                         {{-- refers to pyment --}}
-                        <a class="btn btn-primary btn-sm {{ $display }}" href="/payment/?pid={{$bb->id}}" role="button">Bayar Sekarang</a>
+                        <a class="btn btn-primary btn-sm {{ $display }}" href="/payment/?pid={{$bb->invoice}}" role="button">Bayar Sekarang</a>
                         
                         
                         

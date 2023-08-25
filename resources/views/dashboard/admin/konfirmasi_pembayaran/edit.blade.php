@@ -13,13 +13,13 @@
                 @csrf
                
                 <div class="form-group">
-                    <input type="text" name="id" value="{{ $id }}"><br>
-                    <input type="text" name="id" value="{{ $spem->produk_id }}">
-                    <input type="text" name="user_id" value="{{ $spem->user_id }}">
-                    <input type="text" name="invoice" value="{{ $spem->invoice }}">
-                    <input type="text" name="total_harga" id="total_harga" value="{{ $spem->total_harga }}">
-                    <input type="text" name="tujuan_kota" id="tujuan_kota" value="{{ $spem->tujuan_kota }}">
-                    <input type="text" name="waktu_pembayaran" id="waktu_pembayaran" value="{{ $spem->waktu_pembayaran }}">
+                    <input type="hidden" name="id" value="{{ $id }}"><br>
+                    <input type="hidden" name="id" value="{{ $spem->produk_id }}">
+                    <input type="hidden" name="user_id" value="{{ $spem->user_id }}">
+                    <input type="hidden" name="invoice" value="{{ $spem->invoice }}">
+                    <input type="hidden" name="total_harga" id="total_harga" value="{{ $spem->total_harga }}">
+                    <input type="hidden" name="tujuan_kota" id="tujuan_kota" value="{{ $spem->tujuan_kota }}">
+                    <input type="hidden" name="waktu_pembayaran" id="waktu_pembayaran" value="{{ $spem->waktu_pembayaran }}">
                        
                     <label for="sp">Status Pembayaran</label>
                     <select class="form-control" name="status_pembayaran" id="sp">

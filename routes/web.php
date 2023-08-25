@@ -194,7 +194,7 @@ Route::get('/user/purchase',function(Request $request)
         $display = 'd-none';
         $selesai = '';
         $dnilai = 'd-none';
-        $queryku = Pembelian::where($key,$nilai)->where('user_id',auth()->user()->id)->get();
+        $queryku = Pembelian::where($key,$nilai)->where('selesai', null)->where('user_id',auth()->user()->id)->get();
     } elseif($request->query('selesai') == 1) {
         $key = 'selesai';
         $nilai = $request->query('selesai');
@@ -236,6 +236,7 @@ Route::put('/user/purchase/{id}',function($id)
 Route::get('/penilaian/{id}',function($id){
    return view('feedback.penilaian',[
         'title' => 'Penilaian | Jrahi Market',
+        'active' => 'shop',
         'produk' => Pembelian::where('id',$id)->first()
    ]);
 });
